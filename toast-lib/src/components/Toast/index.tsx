@@ -6,7 +6,7 @@ export interface ToastProps {
   message: string;
   type: 'Warning' | 'Success'|'Info' | 'Error'
   backgroundColor?: string;
-  size?: 'small' | 'medium' | 'large';
+  padding?: 'small' | 'medium' | 'large';
   onClose?: () => void;
 }
 

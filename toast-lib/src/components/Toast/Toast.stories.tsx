@@ -6,6 +6,7 @@ export default {
   title: 'UI/Toast-library',
   component: Toast,
   argTypes: {
+    type: {control: 'select'},
     backgroundColor: {control: 'color'}
   }
 } as ComponentMeta<typeof Toast>;
