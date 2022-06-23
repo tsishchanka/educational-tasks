@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Toast from './index';
+import Toast from '../components/Toast/index';
 
 export default {
   title: 'UI/Toast-library',

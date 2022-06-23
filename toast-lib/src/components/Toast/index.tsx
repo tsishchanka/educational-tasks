@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import {useToastPortal} from '../../hooks';
 
+
 export interface ToastProps {
   title: string;
   message: string;
