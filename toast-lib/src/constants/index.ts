@@ -1,3 +1,4 @@
 export * from './colors';
 export * from './toastType';
-export * from './toastTitle';
+export * from './toastText';
+export * from './toastPadding';

@@ -1,4 +1,6 @@
-export const SUCCESS = 'success';
-export const ERROR = 'error';
-export const INFO = 'info';
-export const WARNING = 'warning';
+export const TOAST_TYPES = {
+    success: 'success',
+    error: 'error',
+    info: 'info',
+    warning: 'warning'
+};

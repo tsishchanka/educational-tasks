@@ -9,6 +9,7 @@
       ]
     },
     "module": "ESNext",
+    "experimentalDecorators": true,
     "moduleResolution": "node",
     "declaration": true,
     "emitDeclarationOnly": true,
@@ -20,5 +21,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
-  }
+  },
+    "exclude": ["node_modules", "dist"]
 }

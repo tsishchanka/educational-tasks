@@ -1,39 +1,94 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {toastToShow} from '../containers/ToastService';
 import Toast from '../components/Toast/index';
 
+
 export default {
-  title: 'UI/Toast-library',
+  title: 'Toast-library',
   component: Toast,
   argTypes: {
-    type: {control: 'select'},
-    backgroundColor: {control: 'color'}
-  }
-} as ComponentMeta<typeof Toast>;
+    type: {
+      control: {
+        type: 'inline-radio',
+        options: ['info', 'warning', 'success', 'error'],
+      },
+    },
+    autoDelete: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    position: {
+      control: {
+        type: 'inline-radio',
+        options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
+      },
+    },
 
-const Template: ComponentStory<typeof Toast> = args => <Toast {...args}/>;
 
-export const Warning = Template.bind({});
+    backgroundColor: { control: 'color'},
 
-Warning.args = {
-  message: 'Warning toast example',
-  type: 'Warning'
+    textColor: { control: 'color' },
+
+    animation: {
+      control: {
+        type: 'inline-radio',
+        options: [
+          'from-top',
+          'from-bottom',
+          'from-right',
+          'from-left',
+        ],
+      },
+    },
+    title: { 
+      control: {
+      type: 'text',
+    }
+  },
+    description: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  message: 'Success toast example',
-  type: 'Success'
-};
+export interface ToastShapeProps {
+  description: string;
+  title: string,
+  type: 'warning' | 'success' | 'info' | 'error';
+  position: string;
+  autoDelete: boolean;
+  deleteDelay:  number;
+  animation: string;
+  backgroundColor: string;
+  textColor: string;
+}
 
-export const Info = Template.bind({});
-Info.args = {
-  message: 'Info toast example',
-  type: 'Info'
-};
 
-export const Error = Template.bind({});
-Error.args = {
-  message: 'Error toast example',
-  type: 'Error'
-};
+
+ export const ToastShape = (args: ToastShapeProps) =>
+  toastToShow.getToast(args.description, {
+    type: args.type,
+    position: args.position,
+    title: args.title,
+    autoDelete: args.autoDelete,
+    delay: args.deleteDelay,
+    animation: args.animation,
+    bgColor: args.backgroundColor,
+    textColor: args.textColor
+  });
+
+ 
+
+  ToastShape.args = {
+    type: 'info',
+    title: '',
+    position: 'top-left',
+    autoDelete: false,
+    deleteDelay: 2000,
+    animation: '',
+    description: 'toast description',
+    backgroundColor: '',
+    textColor: ''
+  };
