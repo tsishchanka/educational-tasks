@@ -1,5 +1,5 @@
 import React, {FC, useLayoutEffect,useEffect, useState} from 'react';
-import {ToastWrapper, Button, ImgBox, TextWrapper, 
+import {ToastWrapper, Button, ImgBox, TextWrapper,
   Title, Description, Container, ToastMain} from './Toast.styles';
 import ErrorBoundary from '../ErrorBoundary';
 
@@ -9,7 +9,7 @@ export interface ToastItemArgs {
     bgColor?: string;
     animation?: string;
     type: 'warning' | 'success' | 'info' | 'error';
-    position?: string;   
+    position?: string;
     delay: number;
     autoDelete?: boolean;
     deleteDelay?:  number;
@@ -20,7 +20,9 @@ export interface ToastItemArgs {
 
 
 const Toast: FC<ToastItemArgs> = ({ ...props}) => {
-    const { toastList, position, title, description,  autoDelete, deleteDelay, textColor, animation, bgColor } = props;
+  const { toastList, position, title, description,
+    autoDelete, deleteDelay, textColor, animation,
+    bgColor } = props;
   const [list, setList] = useState([toastList]);
   useLayoutEffect(() => {
     setList([...toastList]);
@@ -37,10 +39,13 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
       clearInterval(interval);
     };
   }, [toastList, autoDelete, deleteDelay, list]);
-    
+
 
   const handleDeleteToast = (id: string): void => {
-    const listItemIndex = list.findIndex((e: any) => e.id === id);
+    const listItemIndex = list.findIndex((e: any) => {
+      console.log(e);
+      return e.id === id;
+    });
     const toastItem = toastList.findIndex((e: any): boolean => e.id === id);
     list.splice(listItemIndex, 1);
     toastList.splice(toastItem, 1);
@@ -52,14 +57,14 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
     <ErrorBoundary>
         <ToastWrapper animation={animation} bgColor={bgColor} >
         <Container className={position}>
-          {list.map((toast: any) => (            
+          {list.map((toast: any) => (
             <ToastMain
               key={toast.id+'1'}
               style={{
                 backgroundColor: bgColor === '' ? toast.bgColor : bgColor,
               }}  onDrag={() => handleDeleteToast(toast.id)} draggable={true}
             >
-              
+
               <ImgBox style={{
                     color: textColor === '' ? toast.textColor : textColor,
                   }}>
@@ -73,7 +78,7 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
                     color: textColor === '' ? toast.textColor : textColor,
                   }}>{description !== '' ? description : toast.description}</Description>
               <Button
-              
+
                 onClick={() => handleDeleteToast(toast.id)}
                 style={{
                     color: textColor === '' ? toast.textColor : textColor,

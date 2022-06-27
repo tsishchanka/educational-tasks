@@ -1,0 +1,154 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "linebreak-style": 0,
+        "global-require": 0,
+        "eslint linebreak-style": [
+            0,
+            "error",
+            "windows"
+        ],
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
+
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "warn",
+            "always"
+        ],
+        "no-undef": "off",
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "operator-linebreak": "warn",
+        "padding-line-between-statements": "error",
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "createClass": "createReactClass", // Regex for Component Factory to use,
+            "pragma": "React", // Pragma to use, default to "React"
+            "fragment": "Fragment", // Fragment to use (may be a property of <pragma>), default to "Fragment"
+            "version": "detect",
+            "flowVersion": "0.53" // Flow version
+        },
+        "propWrapperFunctions": [
+            "forbidExtraProps",
+            {
+                "property": "freeze",
+                "object": "Object"
+            },
+            {
+                "property": "myFavoriteWrapper"
+            },
+            {
+                "property": "forbidExtraProps",
+                "exact": true
+            }
+        ],
+        "componentWrapperFunctions": [
+            "observer", // `property`
+            {
+                "property": "styled"
+            }, // `object` is optional
+            {
+                "property": "observer",
+                "object": "Mobx"
+            },
+            {
+                "property": "observer",
+                "object": "<pragma>"
+            } // sets `object` to whatever value `settings.react.pragma` is set to
+        ],
+        "formComponents": [
+            "CustomForm",
+            {
+                "name": "Form",
+                "formAttribute": "endpoint"
+            }
+        ],
+        "linkComponents": [
+            "Hyperlink",
+            {
+                "name": "Link",
+                "linkAttribute": "to"
+            }
+        ],
+        "import/order": [
+          "warn",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "external",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": [
+              "react"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "import/resolver": {
+          "node": {
+            "paths": [
+              "src"
+            ]
+          },
+          "alias": {
+            "map": [
+              [
+                "@components",
+                "./src/components"
+              ]
+            ],
+            "extensions": [
+              ".ts",
+              ".js",
+              ".jsx",
+              ".json"
+            ]
+          }
+        }
+    }
+
+}

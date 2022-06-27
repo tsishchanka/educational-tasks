@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import Toast from '../components/Toast';
-import ToastContainer from '../components/Toast/ToastContainer';
+import {ToastContainer} from '../components/Toast/ToastContainer';
 import { uuid } from '../helpers';
-import {TOAST_TYPES, TOAST_TEXT, COLORS, TOAST_PADDING} from '../constants';
+import { TOAST_TYPES, TOAST_TEXT, COLORS } from '../constants';
 import iconSuccess from '../assets/success.svg';
 import iconSearch from '../assets/search.svg';
 import iconWarning from '../assets/warning.svg';
@@ -18,7 +17,7 @@ export interface ToastItem {
     animation?: string;
     textColor?: string;
     type?: string;
-    position?: string;   
+    position?: string;
     delay?: number;
     toastList?: ToastListItems;
     autoDelete?: boolean;
@@ -43,7 +42,7 @@ class ToastClass {
     ToastClass.singleton = this;
     this.toastList =  toastList;
   }
-    
+
 
   getId(): string {
     return `toast-${uuid()}`;
@@ -79,7 +78,7 @@ class ToastClass {
     }
   }
 
- 
+
 
     getBackgroundColor(properties: ToastItem) {
     switch (properties.type) {
@@ -115,7 +114,7 @@ class ToastClass {
         return iconInfo;
     }
   }
-   
+
 
      getProperty(description: string, properties: ToastItem) {
       return {
@@ -140,18 +139,18 @@ class ToastClass {
             position={properties.position}
             autoDelete={properties.autoDelete}
             deleteDelay={properties.delay}
-            animation={properties.animation} 
-            title={properties.title} 
-            type={'info'} 
-            description={description} 
-            delay={1000} 
+            animation={properties.animation}
+            title={properties.title}
+            type={'info'}
+            description={description}
+            delay={1000}
             bgColor={properties.bgColor}
             textColor={properties.textColor}
                    />
       </ToastContainer>
     );
   }
-    
+
 }
 
 export const toastToShow = new ToastClass(toastList);

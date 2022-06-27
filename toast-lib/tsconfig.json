@@ -8,7 +8,7 @@
         "./src/*"
       ]
     },
-    "module": "ESNext",
+    "module": "esnext",
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "declaration": true,
@@ -20,7 +20,21 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true
   },
-    "exclude": ["node_modules", "dist"]
+    "include": ["src"],
+    "exclude": [
+      "node_modules",
+      "dist",
+      "build",
+      "scripts",
+    ],
+    "files":  ["svg.d.ts"]
 }

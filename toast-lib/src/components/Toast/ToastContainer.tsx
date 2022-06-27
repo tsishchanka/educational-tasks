@@ -4,8 +4,6 @@ import {ToastPortalProps} from '../ToastPortal/ToastPortal';
 
 
 
-const ToastContainer: FC<ToastPortalProps> = ({children}) => {
+export const ToastContainer: FC<ToastPortalProps> = ({children}) => {
   return <ToastPortal>{children}</ToastPortal>;
 };
-
-export default ToastContainer;

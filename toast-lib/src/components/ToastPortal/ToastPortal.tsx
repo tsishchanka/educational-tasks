@@ -1,10 +1,9 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import {useToastPortal} from '../../hooks';
-// import Toast from '../Toast';
-// import {ToastProps} from '../Toast/index';
+import { useToastPortal } from '../../hooks';
+
 export type ToastPortalProps = {
   children: ReactNode;
 }
