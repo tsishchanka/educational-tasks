@@ -42,55 +42,49 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
 
 
   const handleDeleteToast = (id: string): void => {
-    const listItemIndex = list.findIndex((e: any) => {
-      console.log(e);
-      return e.id === id;
-    });
-    const toastItem = toastList.findIndex((e: any): boolean => e.id === id);
-    list.splice(listItemIndex, 1);
-    toastList.splice(toastItem, 1);
-    setList([...list]);
+    const newToastList = list.filter((toast: any) => toast.id !== id);
+    setList([...newToastList]);
   };
 
 
     return  (
     <ErrorBoundary>
-        <ToastWrapper animation={animation} bgColor={bgColor} >
+      <ToastWrapper animation={animation} bgColor={bgColor} >
         <Container className={position}>
           {list.map((toast: any) => (
-            <ToastMain
-              key={toast.id+'1'}
-              style={{
-                backgroundColor: bgColor === '' ? toast.bgColor : bgColor,
-              }}  onDrag={() => handleDeleteToast(toast.id)} draggable={true}
-            >
-
-              <ImgBox style={{
-                    color: textColor === '' ? toast.textColor : textColor,
-                  }}>
-                <img src={toast.icon} />
-              </ImgBox>
-              <TextWrapper >
-                <Title>
-                  {title !== '' ? title : toast.title}
-                </Title>
-                <Description style={{
-                    color: textColor === '' ? toast.textColor : textColor,
-                  }}>{description !== '' ? description : toast.description}</Description>
-              <Button
-
-                onClick={() => handleDeleteToast(toast.id)}
+              <ToastMain
+                key={toast.id+'toast'}
                 style={{
-                    color: textColor === '' ? toast.textColor : textColor,
-                  }}
+                  backgroundColor: bgColor === '' ? toast.bgColor : bgColor,
+                }}  onDrag={() => handleDeleteToast(toast.id)} draggable={true}
               >
-                X
-              </Button>
-              </TextWrapper>
-            </ToastMain>
-          ))}
-        </Container>
-      </ToastWrapper>
+
+                <ImgBox style={{
+                      color: textColor === '' ? toast.textColor : textColor,
+                    }}>
+                  <img src={toast.icon} />
+                </ImgBox>
+                <TextWrapper >
+                  <Title>
+                    {title !== '' ? title : toast.title}
+                  </Title>
+                  <Description style={{
+                      color: textColor === '' ? toast.textColor : textColor,
+                    }}>{description !== '' ? description : toast.description}</Description>
+                  <Button
+
+                    onClick={() => handleDeleteToast(toast.id)}
+                    style={{
+                      color: textColor === '' ? toast.textColor : textColor,
+                  }}
+                >
+                  X
+                </Button>
+                </TextWrapper>
+              </ToastMain>
+            ))}
+          </Container>
+        </ToastWrapper>
       </ErrorBoundary>
     );
 };
