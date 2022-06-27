@@ -1,4 +1,3 @@
-import React from 'react';
 import Toast from '../components/Toast';
 import {ToastContainer} from '../components/Toast/ToastContainer';
 import { uuid } from '../helpers';
@@ -7,6 +6,7 @@ import iconSuccess from '../assets/success.svg';
 import iconSearch from '../assets/search.svg';
 import iconWarning from '../assets/warning.svg';
 import iconInfo from '../assets/info.svg';
+import React from 'react';
 
 type ToastListItems = Array<ToastItem>;
 
@@ -84,19 +84,14 @@ class ToastClass {
     switch (properties.type) {
       case TOAST_TYPES.success:
         return COLORS.green;
-        break;
       case TOAST_TYPES.error:
         return COLORS.red;
-        break;
       case TOAST_TYPES.info:
         return COLORS.purple;
-        break;
       case TOAST_TYPES.warning:
         return COLORS.yellow;
-        break;
       default:
         return COLORS.green;
-        break;
     }
   }
 
