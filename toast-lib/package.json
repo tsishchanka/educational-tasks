@@ -1,11 +1,11 @@
 {
-  "name": "toast-lib-tsish",
+  "name": "@tsishchanka/educational-tasks",
   "version": "1.0.3",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/tsishchanka"
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
     "dist"
