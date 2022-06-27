@@ -4,6 +4,9 @@
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/tsishchanka"
+  },
   "files": [
     "dist"
   ],
