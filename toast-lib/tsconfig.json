@@ -9,12 +9,16 @@
       ]
     },
     "module": "esnext",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "declaration": true,
     "emitDeclarationOnly": true,
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "./dist/",
     "declarationDir": "types",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -33,8 +37,7 @@
     "exclude": [
       "node_modules",
       "dist",
-      "build",
-      "scripts",
+      "./src/stories"
     ],
     "files":  ["svg.d.ts"]
 }

@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
-import { terser } from 'rollup-plugin-terser';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import typescript from '@rollup/plugin-typescript'
+import dts from 'rollup-plugin-dts'
+import { terser } from 'rollup-plugin-terser'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import svg from 'rollup-plugin-svg-import'
 
-const packageJson = require('./package.json');
+const packageJson = require('./package.json')
 
 export default [
   {
@@ -29,6 +30,9 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       terser(),
+      svg({
+        stringify: false,
+      }),
     ],
   },
   {
@@ -37,4 +41,4 @@ export default [
     plugins: [dts()],
     external: [/\.(scss|css)$/],
   },
-];
+]
