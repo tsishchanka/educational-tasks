@@ -1,4 +1,5 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
+
 import ToastPortal from '../ToastPortal';
 import {ToastPortalProps} from '../ToastPortal/ToastPortal';
 

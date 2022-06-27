@@ -1,6 +1,7 @@
 
-import { uuid } from '../helpers';
 import  { useState, useEffect } from 'react';
+
+import { uuid } from '../helpers';
 
 export const useToastPortal = () => {
   const [loaded, setLoaded] = useState(false);

@@ -18,49 +18,83 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "import",
+        "react-hooks"
     ],
     "rules": {
-        "linebreak-style": 0,
-        "global-require": 0,
-        "eslint linebreak-style": [
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+    ],
+    "indent": [
+        "warn",
+        2
+    ],
+
+    "max-len": [
+        "error",
+        {
+            "code": 120
+        }
+    ],
+    "linebreak-style": 0,
+    "global-require": 0,
+    "eslint linebreak-style": [
             0,
             "error",
             "windows"
         ],
-        "arrow-parens": [
+    "arrow-parens": [
             "error",
             "as-needed"
         ],
-
+    "react/prop-types": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-closing-tag-location": 2,
         "quotes": [
             "error",
             "single"
         ],
-        "semi": [
+    "semi": [
             "warn",
             "always"
         ],
-        "no-undef": "off",
-        "no-unused-vars": "warn",
-        "no-console": "warn",
-        "operator-linebreak": "warn",
-        "padding-line-between-statements": "error",
-        "prefer-const": [
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "no-console": "warn",
+    "operator-linebreak": "warn",
+    "padding-line-between-statements": "error",
+    "prefer-const": [
             "error",
             {
                 "destructuring": "any",
                 "ignoreReadBeforeAssign": false
             }
-        ]
+        ],
+    "import/order": [
+        "error",
+        {
+        "groups": [
+                "builtin",
+                "external",
+                "internal",
+                "parent",
+                "sibling",
+                "index",
+                "object",
+                "type"
+            ],
+        "newlines-between": "always-and-inside-groups"
+        }
+    ]
     },
     "settings": {
         "react": {
-            "createClass": "createReactClass", // Regex for Component Factory to use,
-            "pragma": "React", // Pragma to use, default to "React"
-            "fragment": "Fragment", // Fragment to use (may be a property of <pragma>), default to "Fragment"
-            "version": "detect",
-            "flowVersion": "0.53" // Flow version
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "fragment": "Fragment",
+            "version": "detect"
         },
         "propWrapperFunctions": [
             "forbidExtraProps",

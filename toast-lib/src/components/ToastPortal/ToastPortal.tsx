@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-
 import ReactDOM from 'react-dom';
 
 import { useToastPortal } from '../../hooks';
@@ -9,11 +8,11 @@ export type ToastPortalProps = {
 }
 
 const ToastPortal = ({children}:ToastPortalProps) => {
-   const {loaded, portalId} = useToastPortal();
+  const {loaded, portalId} = useToastPortal();
 
-    return loaded ? (
-        ReactDOM.createPortal(
-            children,
+  return loaded ? (
+    ReactDOM.createPortal(
+      children,
             document.getElementById(portalId)!,
     )) : <></>;
 };
