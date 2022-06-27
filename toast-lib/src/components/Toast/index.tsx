@@ -53,7 +53,7 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
         <Container className={position}>
           {list.map((toast: any) => (
               <ToastMain
-                key={toast.id+'toast'}
+                key={`${toast.id}'toast'`}
                 style={{
                   backgroundColor: bgColor === '' ? toast.bgColor : bgColor,
                 }}  onDrag={() => handleDeleteToast(toast.id)} draggable={true}

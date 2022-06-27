@@ -12,8 +12,8 @@ const ToastPortal = ({children}:ToastPortalProps) => {
    const {loaded, portalId} = useToastPortal();
 
     return loaded ? (
-        ReactDOM.createPortal(    
-            children,       
+        ReactDOM.createPortal(
+            children,
             document.getElementById(portalId)!,
     )) : <></>;
 };
