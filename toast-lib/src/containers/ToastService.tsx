@@ -2,7 +2,7 @@ import React from 'react';
 
 import { uuid } from '../helpers';
 import { TOAST_TYPES, TOAST_TEXT, COLORS } from '../constants';
-import {ToastContainer} from '../components/Toast/ToastContainer';
+import {ToastsWrapper} from '../components/Toast/ToastsWrapper';
 import Toast from '../components/Toast';
 
 import iconSuccess from '../assets/success.svg';
@@ -27,15 +27,12 @@ export interface ToastItem {
     description?: string;
 }
 
-
-
-
 let toastList: ToastListItems = [];
 
-class ToastClass {
+class ToastClass  {
   private static singleton: ToastClass;
 
-  toastList: any;
+  toastList: ToastListItems;
   constructor(toastList: ToastListItems) {
     if (ToastClass.singleton) {
       throw new Error('Something went wrong ...');
@@ -46,7 +43,7 @@ class ToastClass {
 
 
   getId(): string {
-    return `toast-${uuid()}`;
+    return `${uuid()}`;
   }
 
   getTitle(properties: ToastItem) {
@@ -127,9 +124,9 @@ class ToastClass {
 
   getToast(description: string, properties: ToastItem) {
     if (toastList.length < 3)
-      toastList = [this.getProperty(description, properties)];
+      toastList = [...toastList, this.getProperty(description, properties)];
     return (
-      <ToastContainer>
+      <ToastsWrapper>
         <Toast
           toastList={toastList}
           position={properties.position}
@@ -143,7 +140,7 @@ class ToastClass {
           bgColor={properties.bgColor}
           textColor={properties.textColor}
         />
-      </ToastContainer>
+      </ToastsWrapper>
     );
   }
 

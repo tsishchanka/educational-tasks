@@ -1,5 +1,5 @@
 
 
-export {ToastContainer} from './components/Toast/ToastContainer'
+export {ToastsWrapper} from './components/Toast/ToastsWrapper';
 
 export * from './containers/ToastService';
