@@ -24,6 +24,13 @@ export default {
       },
     },
 
+    toastMargin: {
+      control: {
+        type: 'inline-radio',
+        options: ['20px', '30px', '40px'],
+      },
+    },
+
 
     backgroundColor: { control: 'color'},
 
@@ -40,11 +47,11 @@ export default {
         ],
       },
     },
-    title: { 
+    title: {
       control: {
-      type: 'text',
-    }
-  },
+        type: 'text',
+      },
+    },
     description: {
       control: {
         type: 'text',
@@ -63,11 +70,12 @@ export interface ToastShapeProps {
   animation: string;
   backgroundColor: string;
   textColor: string;
+  toastMargin: string;
 }
 
 
 
- export const ToastShape = (args: ToastShapeProps) =>
+export const ToastShape = (args: ToastShapeProps) =>
   toastToShow.getToast(args.description, {
     type: args.type,
     position: args.position,
@@ -76,19 +84,21 @@ export interface ToastShapeProps {
     delay: args.deleteDelay,
     animation: args.animation,
     bgColor: args.backgroundColor,
-    textColor: args.textColor
+    textColor: args.textColor,
+    toastMargin: args.toastMargin,
   });
 
- 
 
-  ToastShape.args = {
-    type: 'info',
-    title: '',
-    position: 'top-left',
-    autoDelete: false,
-    deleteDelay: 2000,
-    animation: '',
-    description: 'toast description',
-    backgroundColor: '',
-    textColor: ''
-  };
+
+ToastShape.args = {
+  type: 'info',
+  title: '',
+  position: 'top-left',
+  autoDelete: false,
+  deleteDelay: 2000,
+  animation: '',
+  description: 'toast description',
+  backgroundColor: '',
+  textColor: '',
+  toastMargin: '',
+};

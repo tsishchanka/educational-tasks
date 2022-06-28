@@ -4,12 +4,13 @@ interface Props {
   animation?: string;
   bgColor?: string;
   textColor?: string;
+  toastMargin?: string;
 }
 
 export const ToastWrapper = styled.div<Props>`
-  
+
  animation: ${props =>
-        props.animation ? props.animation : 'from-right'}
+    props.animation ? props.animation : 'from-right'}
       0.7s;
 
       @keyframes from-right {
@@ -64,7 +65,7 @@ export const ToastMain = styled.div<Props>`
     border-radius: 24px;
     color: #fff;
     opacity: 1;
-    
+
 `;
 
 export const Button = styled.button<Props>`
@@ -89,45 +90,53 @@ export const ImgBox = styled.div<Props>`
 `;
 
 export const Container = styled.div<Props>`
-    background-color: ${props => props.bgColor}
+    background-color: ${props => props.bgColor};
     box-sizing: border-box;
     position: fixed;
     z-index: 100;
 
     &.top-right {
-    top: 20px;
-    right: 20px;
+    top: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
+    right: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
     transition: transform 0.6s ease-in-out;
     animation: ${props =>
-        props.animation ? props.animation : 'from-right'}
+    props.animation ? props.animation : 'from-right'}
       0.7s;
-    
+
   }
 
   &.bottom-right {
-    bottom: 20px;
-    right: 20px;
+    bottom: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
+    right: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
     transition: transform 0.6s ease-in-out;
     animation: ${props =>
-        props.animation ? props.animation : 'from-right'}
+    props.animation ? props.animation : 'from-right'}
       0.7s;
   }
 
   &.top-left {
-    top: 20px;
-    left: 20px;
+    top: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
+    left: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
     transition: transform 0.6s ease-in;
     animation: ${props =>
-        props.animation ? props.animation : 'from-left'}
+    props.animation ? props.animation : 'from-left'}
       0.7s;
   }
 
   &.bottom-left {
-    bottom: 20px;
-    left: 20px;
+    bottom: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
+    left: ${props =>
+    props.toastMargin ? props.toastMargin : '20px'};
     transition: transform 0.6s ease-in;
     animation: ${props =>
-        props.animation ? props.animation : 'from-left'}
+    props.animation ? props.animation : 'from-left'}
       0.7s;
   }
 `;

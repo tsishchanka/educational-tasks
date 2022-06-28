@@ -25,6 +25,7 @@ export interface ToastItem {
     autoDelete?: boolean;
     deleteDelay?:  number;
     description?: string;
+    toastMargin?: string;
 }
 
 let toastList: ToastListItems = [];
@@ -133,6 +134,7 @@ class ToastClass  {
           autoDelete={properties.autoDelete}
           deleteDelay={properties.delay}
           animation={properties.animation}
+          toastMargin={properties.toastMargin}
           title={properties.title}
           type={'info'}
           description={description}

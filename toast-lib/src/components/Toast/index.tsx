@@ -17,13 +17,14 @@ export interface ToastItemArgs {
     toastList: Array<any>;
     description?: string;
     textColor?: string;
+    toastMargin?: string;
 }
 
 
 const Toast: FC<ToastItemArgs> = ({ ...props}) => {
   const { toastList, position, title, description,
     autoDelete, deleteDelay, textColor, animation,
-    bgColor } = props;
+    toastMargin, bgColor } = props;
   const [list, setList] = useState([toastList]);
   useEffect(() => {
     setList([...toastList]);
@@ -47,11 +48,12 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
     setList([...newToastList]);
   };
 
+  console.log(toastMargin);
 
   return  (
     <ErrorBoundary>
       <ToastWrapper animation={animation} bgColor={bgColor} >
-        <Container className={position}>
+        <Container className={position} toastMargin={toastMargin}>
           {list.map((toast: any) => (
             <ToastMain
               key={`'toast'-${toast.id}`}
