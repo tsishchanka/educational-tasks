@@ -96,48 +96,6 @@
             "fragment": "Fragment",
             "version": "detect"
         },
-        "propWrapperFunctions": [
-            "forbidExtraProps",
-            {
-                "property": "freeze",
-                "object": "Object"
-            },
-            {
-                "property": "myFavoriteWrapper"
-            },
-            {
-                "property": "forbidExtraProps",
-                "exact": true
-            }
-        ],
-        "componentWrapperFunctions": [
-            "observer", // `property`
-            {
-                "property": "styled"
-            }, // `object` is optional
-            {
-                "property": "observer",
-                "object": "Mobx"
-            },
-            {
-                "property": "observer",
-                "object": "<pragma>"
-            } // sets `object` to whatever value `settings.react.pragma` is set to
-        ],
-        "formComponents": [
-            "CustomForm",
-            {
-                "name": "Form",
-                "formAttribute": "endpoint"
-            }
-        ],
-        "linkComponents": [
-            "Hyperlink",
-            {
-                "name": "Link",
-                "linkAttribute": "to"
-            }
-        ],
         "import/order": [
           "warn",
           {
