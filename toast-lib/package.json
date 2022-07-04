@@ -14,8 +14,9 @@
   "scripts": {
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build-static-webapp":"expo build:web",
+    "build": "build-storybook -o docs-build -s ./assets",
+    "build-static-webapp": "expo build:web",
+    "deploy-storybook": "storybook-to-ghpages",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "lint": "eslint .",
     "lint-and-fix": "eslint . --ext .ts --fix"
@@ -41,6 +42,7 @@
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.9",
+    "@storybook/storybook-deployer": "^2.8.11",
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^28.1.3",
     "@types/node": "^18.0.0",
@@ -93,5 +95,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "netlify-cli": "^10.7.1"
+  }
 }
