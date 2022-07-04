@@ -15,6 +15,7 @@
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-static-webapp":"expo build:web",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "lint": "eslint .",
     "lint-and-fix": "eslint . --ext .ts --fix"
