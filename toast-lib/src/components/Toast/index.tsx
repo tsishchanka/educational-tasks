@@ -43,12 +43,10 @@ const Toast: FC<ToastItemArgs> = ({ ...props}) => {
   }, [toastList, autoDelete, deleteDelay, list]);
 
 
-  const handleDeleteToast = (id: string): void => {
+  const handleDeleteToast = (id: string) => {
     const newToastList = list.filter((toast: any) => toast.id !== id);
     setList([...newToastList]);
   };
-
-  console.log(toastMargin);
 
   return  (
     <ErrorBoundary>

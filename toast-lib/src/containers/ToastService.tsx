@@ -31,6 +31,7 @@ export interface ToastItem {
 let toastList: ToastListItems = [];
 
 class ToastClass  {
+
   private static singleton: ToastClass;
 
   toastList: ToastListItems;
